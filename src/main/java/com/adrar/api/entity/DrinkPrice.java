@@ -15,11 +15,11 @@ public class DrinkPrice {
     @Column(nullable = false)
     private Double price;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "drink_id")
     private Drink drink;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name="drink_size_id")
     private DrinkSize drinkSize;
 

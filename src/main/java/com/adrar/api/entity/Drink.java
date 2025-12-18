@@ -16,10 +16,10 @@ public class Drink {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany
-    @JoinTable(name="drink_drink_type",
-            joinColumns = @JoinColumn(name="drink_id"),
-            inverseJoinColumns = @JoinColumn(name="type_id")
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name= "drink_drink_type",
+            joinColumns = @JoinColumn(name= "drink_id"),
+            inverseJoinColumns = @JoinColumn(name= "type_id")
     )
     private ArrayList<DrinkType> drinkTypes;
 }
