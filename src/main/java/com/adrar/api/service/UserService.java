@@ -1,31 +1,25 @@
 package com.adrar.api.service;
 
+import com.adrar.api.entity.NameOnly;
 import com.adrar.api.entity.User;
 import com.adrar.api.repository.UserRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserService {
-
+    @Autowired
     private UserRepository userRepository;
 
     //Afficher tous les utilisateurs
-    public ArrayList<User> findAll()
+    public List<User> getAllUser()
     {
-        //Test si la liste est vide
-        if (userRepository.count() == 0) {
-            throw new RuntimeException("Il n'y à pas d'utilisateur");
-        }
-        return (ArrayList<User>) userRepository.findAll();
+        return (List<User>) userRepository.findAll();
     }
+
+
     //Ajouter un utilisateur
     public User addUser(User user) throws RuntimeException
     {
@@ -57,5 +51,10 @@ public class UserService {
     public void removeUser(Integer id)
     {
         userRepository.deleteById(id);
+    }
+
+    public List<NameOnly> getAllUserFilter()
+    {
+        return userRepository.findAllBy();
     }
 }
