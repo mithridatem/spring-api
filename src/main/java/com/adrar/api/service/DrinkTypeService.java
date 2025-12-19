@@ -1,6 +1,7 @@
 package com.adrar.api.service;
 
 import com.adrar.api.entity.DrinkType;
+import com.adrar.api.exception.DrinkTypeNotFoundException;
 import com.adrar.api.repository.DrinkTypeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,10 +38,11 @@ public class DrinkTypeService {
     //afficher un (id ou attribut),
     public Optional<DrinkType> getDrinkTypeById(int id)
     {
+
         return Optional
                 .of(drinkTypeRepository
                         .findById(id)
-                        .orElseThrow(RuntimeException::new)
+                        .orElseThrow(DrinkTypeNotFoundException::new)
                 );
     }
     //supprimer un (id)

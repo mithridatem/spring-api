@@ -1,6 +1,7 @@
 package com.adrar.api;
 
 import com.adrar.api.entity.WrapNameOnly;
+import com.adrar.api.service.DrinkTypeService;
 import com.adrar.api.service.UserService;
 import lombok.AllArgsConstructor;
 import org.jspecify.annotations.NonNull;
@@ -13,7 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @AllArgsConstructor
 public class ApiApplication implements CommandLineRunner {
 
-    private UserService userService;
 
     public static void main(String[] args) {
         SpringApplication.run(ApiApplication.class, args);
@@ -21,5 +21,6 @@ public class ApiApplication implements CommandLineRunner {
 
     @Override
     public void run(String @NonNull ... args) throws Exception {
+
     }
 }
