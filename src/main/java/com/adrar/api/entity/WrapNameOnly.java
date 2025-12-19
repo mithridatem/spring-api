@@ -1,12 +1,11 @@
 package com.adrar.api.entity;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class WrapNameOnly {
 
-    private NameOnly nameOnly;
-    public WrapNameOnly(NameOnly nameOnly)
-    {
-        this.nameOnly = nameOnly;
-    }
+    private final NameOnly nameOnly;
 
     public String toString()
     {

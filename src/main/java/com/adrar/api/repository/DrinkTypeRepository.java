@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DrinkTypeRepository extends CrudRepository<DrinkType, Integer> {
+    public boolean existsByName(String name);
 }
