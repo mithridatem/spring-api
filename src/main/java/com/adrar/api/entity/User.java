@@ -24,4 +24,6 @@ public class User {
     @Column(nullable=false, length=100)
     private String password;
 
+    @Column(nullable=true, length=100)
+    private String pseudo;
 }

@@ -1,0 +1,15 @@
+meta {
+  name: supprimer un compte par son ID
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/user/1
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

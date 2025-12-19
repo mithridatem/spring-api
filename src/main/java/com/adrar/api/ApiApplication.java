@@ -21,9 +21,5 @@ public class ApiApplication implements CommandLineRunner {
 
     @Override
     public void run(String @NonNull ... args) throws Exception {
-        userService
-                .getAllUserFilter()
-                .stream().map(WrapNameOnly::new)
-                .forEach(System.out::println);
     }
 }
