@@ -34,7 +34,7 @@ public class UserController {
     //afficher un compte avec son email
     @GetMapping("/user/{email}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<User> getUserByEmail(@PathVariable("email") String email)
+    public Optional<User> getUserByEmail(@PathVariable String email)
     {
         return Optional.ofNullable(userService.getUserByEmail(email));
     }
