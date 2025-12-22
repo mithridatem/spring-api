@@ -1,11 +1,11 @@
 meta {
-  name: supprimer un compte par son ID
+  name: tous les utilisateurs
   type: http
-  seq: 6
+  seq: 2
 }
 
-delete {
-  url: {{base_uri}}/user/1
+get {
+  url: {{base_uri}}/users
   body: none
   auth: inherit
 }

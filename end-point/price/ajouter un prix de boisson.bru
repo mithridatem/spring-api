@@ -1,0 +1,28 @@
+meta {
+  name: ajouter un prix de boisson
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_uri}}/price
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "price":1.50,
+    "drink":{
+      "id":4
+    },
+    "drinkSize":{
+      "id":6
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

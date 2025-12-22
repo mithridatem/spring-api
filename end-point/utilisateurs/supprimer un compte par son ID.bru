@@ -1,11 +1,11 @@
 meta {
-  name: Supprimer une boisson
+  name: supprimer un compte par son ID
   type: http
-  seq: 10
+  seq: 3
 }
 
 delete {
-  url: http://localhost:8080/drink/3
+  url: {{base_uri}}/user/1
   body: none
   auth: inherit
 }

@@ -1,11 +1,11 @@
 meta {
-  name: afficher un compte par son email
+  name: afficher tous les prix
   type: http
-  seq: 4
+  seq: 2
 }
 
 get {
-  url: {{base_uri}}/user/mathieu@test.com
+  url: http://localhost:8080/prices
   body: none
   auth: inherit
 }

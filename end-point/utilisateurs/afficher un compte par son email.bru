@@ -1,11 +1,11 @@
 meta {
-  name: Supprimer une taille de boisson
+  name: afficher un compte par son email
   type: http
-  seq: 14
+  seq: 2
 }
 
-delete {
-  url: http://localhost:8080/size/80
+get {
+  url: {{base_uri}}/user/mathieu@test.com
   body: none
   auth: inherit
 }

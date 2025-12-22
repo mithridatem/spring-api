@@ -1,11 +1,11 @@
 meta {
-  name: tous les utilisateurs
+  name: supprimer un prix de boisson
   type: http
-  seq: 3
+  seq: 16
 }
 
-get {
-  url: {{base_uri}}/users
+delete {
+  url: {{base_uri}}/price/1
   body: none
   auth: inherit
 }
