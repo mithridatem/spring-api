@@ -1,12 +1,11 @@
 package com.adrar.api.service;
 
 import com.adrar.api.entity.DrinkType;
-import com.adrar.api.exception.DrinkTypeNotFoundException;
+import com.adrar.api.exception.type.DrinkTypeNotFoundException;
 import com.adrar.api.repository.DrinkTypeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

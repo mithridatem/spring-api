@@ -1,6 +1,6 @@
 package com.adrar.api.controller;
 
-import com.adrar.api.exception.DrinkTypeNotFoundException;
+import com.adrar.api.exception.type.DrinkTypeNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,7 +12,7 @@ import java.util.Map;
 public class AdviceDrinkTypeController {
 
     @ExceptionHandler(DrinkTypeNotFoundException.class)
-    public ResponseEntity<Map<String, String>> handleException(RuntimeException ex)
+    public ResponseEntity<Map<String, String>> handleDrinkTypeNotFoundException(RuntimeException ex)
     {
         Map<String,String> response = new HashMap<>();
         response.put("Error", ex.getMessage());

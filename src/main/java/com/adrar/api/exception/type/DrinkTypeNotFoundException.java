@@ -1,4 +1,4 @@
-package com.adrar.api.exception;
+package com.adrar.api.exception.type;
 
 public class DrinkTypeNotFoundException extends RuntimeException {
     public DrinkTypeNotFoundException() {
