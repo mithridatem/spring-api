@@ -3,6 +3,7 @@ package com.adrar.api.controller;
 import com.adrar.api.dto.user.UserDTO;
 import com.adrar.api.entity.User;
 import com.adrar.api.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UserController {
     //ajouter un compte
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestBody User user)
+    public User createUser(@RequestBody @Valid User user)
     {
         return userService.addUser(user);
     }

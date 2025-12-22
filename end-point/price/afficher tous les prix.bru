@@ -5,9 +5,22 @@ meta {
 }
 
 get {
-  url: http://localhost:8080/prices
+  url: http://localhost:8080/price/4
   body: none
   auth: inherit
+}
+
+body:json {
+  {
+    "price":1.50,
+    "drink":{
+      "id":2
+    },
+    "drinkSize":
+    {
+      "id":1
+    }
+  }
 }
 
 settings {
