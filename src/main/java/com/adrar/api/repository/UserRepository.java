@@ -1,6 +1,6 @@
 package com.adrar.api.repository;
 
-import com.adrar.api.entity.NameOnly;
+import com.adrar.api.entity.filter.NameOnly;
 import com.adrar.api.entity.User;
 
 import org.springframework.data.repository.CrudRepository;

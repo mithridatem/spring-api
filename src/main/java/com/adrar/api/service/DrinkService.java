@@ -1,7 +1,8 @@
 package com.adrar.api.service;
 
 import com.adrar.api.entity.Drink;
-import com.adrar.api.exception.drink.DrinkNotFoundException;
+import com.adrar.api.exception.drink.DrinkAllReadyExistsException;
+import com.adrar.api.exception.drink.DrinksNotFoundException;
 import com.adrar.api.repository.DrinkRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class DrinkService {
     private DrinkRepository drinkRepository;
     //ajout,
     public Drink addDrink(Drink drink) {
+        if (drinkRepository.existsByName(drink.getName())) {
+            throw new DrinkAllReadyExistsException("La boisson avec le name suivant : " + drink.getName() + " existe déjà");
+        }
         return drinkRepository.save(drink);
     }
     //afficher tous,
@@ -23,7 +27,7 @@ public class DrinkService {
     public List<Drink> getAllDrink()
     {
         if (drinkRepository.count() == 0) {
-            throw new DrinkNotFoundException("La liste des boissons est vide");
+            throw new DrinksNotFoundException("La liste des boissons est vide");
         }
         return (List<Drink>) drinkRepository.findAll();
     }
@@ -34,16 +38,20 @@ public class DrinkService {
         return Optional
                 .of(drinkRepository
                         .findById(id)
-                        .orElseThrow(RuntimeException::new)
+                        .orElseThrow(
+                                ()-> new DrinksNotFoundException("La boisson avec id :" + id +  " n'existe pas")
+                        )
                 );
     }
     //afficher une boisson par son name
-    public Optional<Drink> findByName(String name)
+    public Optional<Drink> getDrinkByName(String name)
     {
        return Optional
                .ofNullable(drinkRepository
                        .findByName(name)
-                       .orElseThrow(RuntimeException::new)
+                       .orElseThrow(
+                               ()-> new DrinksNotFoundException("La boisson avec le name :" + name +  " n'existe pas")
+                       )
                );
     }
     //supprimer un (id)

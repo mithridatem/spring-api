@@ -1,4 +1,4 @@
-package com.adrar.api.entity;
+package com.adrar.api.entity.filter;
 
 import lombok.AllArgsConstructor;
 

@@ -1,10 +1,9 @@
 package com.adrar.api.service;
 
-import com.adrar.api.entity.NameOnly;
+import com.adrar.api.entity.filter.NameOnly;
 import com.adrar.api.entity.User;
 import com.adrar.api.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

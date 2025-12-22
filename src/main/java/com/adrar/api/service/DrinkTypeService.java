@@ -1,7 +1,9 @@
 package com.adrar.api.service;
 
 import com.adrar.api.entity.DrinkType;
-import com.adrar.api.exception.type.DrinkTypeNotFoundException;
+import com.adrar.api.exception.type.DrinkTypeAllReadyExistsException;
+import com.adrar.api.exception.type.DrinkTypeIsNotExistsException;
+import com.adrar.api.exception.type.DrinkTypesNotFoundException;
 import com.adrar.api.repository.DrinkTypeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +22,7 @@ public class DrinkTypeService {
     {
         //tester si le type existe déja
         if (drinkTypeRepository.existsByName(drinkType.getName())) {
-            throw new RuntimeException("Le type existe déja");
+            throw new DrinkTypeAllReadyExistsException("Le type avec le name suivant : " + drinkType.getName() +" existe déja");
         }
         return drinkTypeRepository.save(drinkType);
     }
@@ -29,7 +31,7 @@ public class DrinkTypeService {
     public List<DrinkType> getAllDrinkTypes()
     {
         if (drinkTypeRepository.count() == 0) {
-            throw new RuntimeException("La liste des types est vide");
+            throw new DrinkTypesNotFoundException("La liste des types est vide");
         }
         return (List<DrinkType>) drinkTypeRepository.findAll();
     }
@@ -41,7 +43,10 @@ public class DrinkTypeService {
         return Optional
                 .of(drinkTypeRepository
                         .findById(id)
-                        .orElseThrow(DrinkTypeNotFoundException::new)
+                        .orElseThrow(()-> new DrinkTypeIsNotExistsException(
+                                "Le type avec le id suivant : " + id + " n'existe pas"
+                        )
+                    )
                 );
     }
     //supprimer un (id)
