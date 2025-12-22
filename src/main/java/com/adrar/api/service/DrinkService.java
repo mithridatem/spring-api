@@ -1,7 +1,7 @@
 package com.adrar.api.service;
 
 import com.adrar.api.entity.Drink;
-import com.adrar.api.exception.drink.NoDrinkFoundException;
+import com.adrar.api.exception.drink.DrinkNotFoundException;
 import com.adrar.api.repository.DrinkRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class DrinkService {
     public List<Drink> getAllDrink()
     {
         if (drinkRepository.count() == 0) {
-            throw new NoDrinkFoundException("La liste des boissons est vide");
+            throw new DrinkNotFoundException("La liste des boissons est vide");
         }
         return (List<Drink>) drinkRepository.findAll();
     }
