@@ -1,0 +1,16 @@
+meta {
+  name: retourner un userDTO par son  ID
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base_uri}}/user/dto/4
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

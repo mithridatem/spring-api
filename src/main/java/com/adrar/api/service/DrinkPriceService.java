@@ -1,8 +1,8 @@
 package com.adrar.api.service;
 
-import com.adrar.api.dto.DrinkDTO;
-import com.adrar.api.dto.DrinkDTOFr;
-import com.adrar.api.dto.DrinkToDrinkDTOWrapper;
+import com.adrar.api.dto.drink.DrinkDTO;
+import com.adrar.api.dto.drink.DrinkDTOFr;
+import com.adrar.api.dto.drink.DrinkToDrinkDTOWrapper;
 import com.adrar.api.entity.DrinkPrice;
 import com.adrar.api.repository.DrinkPriceRepository;
 import lombok.AllArgsConstructor;

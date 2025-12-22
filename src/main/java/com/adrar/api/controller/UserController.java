@@ -1,5 +1,6 @@
 package com.adrar.api.controller;
 
+import com.adrar.api.dto.user.UserDTO;
 import com.adrar.api.entity.User;
 import com.adrar.api.service.UserService;
 import lombok.AllArgsConstructor;
@@ -59,4 +60,23 @@ public class UserController {
         //Retourner la réponse
         return new ResponseEntity<>(reponse, HttpStatus.OK);
     }
+
+    @GetMapping("/user/dto/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDTO getUserDTOById(@PathVariable Integer id)
+    {
+        return userService.getUserDTO(id);
+    }
+
+    @GetMapping("/users/dto")
+    @ResponseStatus(HttpStatus.OK)
+    public List<UserDTO> getUserDTOs() {
+       return userService.getAllUserDTOs();
+    }
+    @GetMapping("/users/dto2")
+    @ResponseStatus(HttpStatus.OK)
+    public List<UserDTO> getUserDTOsV2() {
+        return userService.getAllUserDTOsV2();
+    }
+
 }

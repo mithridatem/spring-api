@@ -1,4 +1,4 @@
-package com.adrar.api.dto;
+package com.adrar.api.dto.drink;
 
 import com.adrar.api.entity.DrinkPrice;
 import com.adrar.api.entity.DrinkType;

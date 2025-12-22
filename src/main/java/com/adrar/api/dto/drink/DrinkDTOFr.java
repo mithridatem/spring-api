@@ -1,4 +1,4 @@
-package com.adrar.api.dto;
+package com.adrar.api.dto.drink;
 
 public record DrinkDTOFr(
         String nom,

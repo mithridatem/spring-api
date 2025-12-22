@@ -1,0 +1,15 @@
+meta {
+  name: Retourner la liste des userDTO
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{base_uri}}/users/dto
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

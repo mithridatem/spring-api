@@ -1,11 +1,14 @@
 package com.adrar.api.service;
 
+import com.adrar.api.dto.user.UserDTO;
+import com.adrar.api.dto.user.UserDTOWrapper;
 import com.adrar.api.entity.filter.NameOnly;
 import com.adrar.api.entity.User;
 import com.adrar.api.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -57,5 +60,39 @@ public class UserService {
     public List<NameOnly> getAllUserFilter()
     {
         return userRepository.findAllBy();
+    }
+
+    //Retourner un userDTO par son id
+    public UserDTO getUserDTO(Integer id)
+    {
+        return UserDTOWrapper
+                .userToUserDTO(
+                        userRepository
+                                .findById(id)
+                                .get()
+                );
+    }
+
+    //Retourner tous les utilisateurs List<userDTO>
+    public List<UserDTO> getAllUserDTOs()
+    {
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for (User user : userRepository.findAll()) {
+            userDTOs.add(UserDTOWrapper.userToUserDTO(user));
+        }
+        return userDTOs;
+    }
+    //Retourner tous les utilisateurs List<userDTO> v2
+    public List<UserDTO> getAllUserDTOsV2()
+    {
+        List<UserDTO> userDTOs = new ArrayList<>();
+        userRepository
+                .findAll()
+                .forEach(u ->
+                    userDTOs.add(
+                        UserDTOWrapper.userToUserDTO(u)
+                )
+        );
+        return userDTOs;
     }
 }
