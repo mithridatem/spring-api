@@ -14,7 +14,7 @@ public class DrinkService {
 
     private DrinkRepository drinkRepository;
     //ajout,
-    public Drink save(Drink drink) {
+    public Drink addDrink(Drink drink) {
         if (drinkRepository.existsByName(drink.getName())) {
             throw new RuntimeException("La boisson existe déja");
         }
@@ -31,7 +31,7 @@ public class DrinkService {
     }
 
     //afficher un (id ou attribut),
-    public Optional<Drink> findById(Integer id)
+    public Optional<Drink> getDrinkById(Integer id)
     {
         return Optional
                 .of(drinkRepository
