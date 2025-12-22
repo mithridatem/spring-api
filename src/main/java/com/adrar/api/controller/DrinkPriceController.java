@@ -1,5 +1,7 @@
 package com.adrar.api.controller;
 
+import com.adrar.api.dto.DrinkDTO;
+import com.adrar.api.dto.DrinkDTOFr;
 import com.adrar.api.entity.DrinkPrice;
 import com.adrar.api.service.DrinkPriceService;
 import lombok.AllArgsConstructor;
@@ -11,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 
 @RestController
@@ -47,5 +50,17 @@ public class DrinkPriceController {
         response.put("Info","Le prix à été supprimé");
         drinkPriceService.removeDrinkPriceById(id);
         return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+    
+    @GetMapping("/price/dto/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public DrinkDTO getDrinkDTOById(@PathVariable Integer id) {
+        return drinkPriceService.getDTOById(id);
+    }
+
+    @GetMapping("/price/dtofr/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Stream<DrinkDTOFr> getDrinkDTOFrById(@PathVariable Integer id) {
+        return drinkPriceService.getDrinkDTOFrById(id);
     }
 }

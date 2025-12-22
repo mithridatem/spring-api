@@ -1,6 +1,8 @@
 package com.adrar.api.service;
 
-import com.adrar.api.entity.Drink;
+import com.adrar.api.dto.DrinkDTO;
+import com.adrar.api.dto.DrinkDTOFr;
+import com.adrar.api.dto.DrinkToDrinkDTOWrapper;
 import com.adrar.api.entity.DrinkPrice;
 import com.adrar.api.repository.DrinkPriceRepository;
 import lombok.AllArgsConstructor;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -60,5 +63,30 @@ public class DrinkPriceService {
     public void removeDrinkPriceById(Integer id)
     {
         drinkPriceRepository.deleteById(id);
+    }
+
+    public Stream<DrinkDTO> getDrinkDTOById(Integer id)
+    {
+        return drinkPriceRepository
+                .findById(id)
+                .stream()
+                .map(DrinkToDrinkDTOWrapper::drinkToDrinkDTO);
+    }
+
+    public Stream<DrinkDTOFr> getDrinkDTOFrById(Integer id)
+    {
+        return drinkPriceRepository
+                .findById(id)
+                .stream()
+                .map(DrinkToDrinkDTOWrapper::drinkToDrinkDTOFr);
+    }
+
+    public DrinkDTO getDTOById(Integer id)
+    {
+        return DrinkToDrinkDTOWrapper
+                .drinkToDrinkDTO(drinkPriceRepository
+                        .findById(id)
+                        .get()
+                );
     }
 }
