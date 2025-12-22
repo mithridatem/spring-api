@@ -1,0 +1,22 @@
+meta {
+  name: ajouter une taille de boisson
+  type: http
+  seq: 12
+}
+
+post {
+  url: http://localhost:8080/size
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "volume":20
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

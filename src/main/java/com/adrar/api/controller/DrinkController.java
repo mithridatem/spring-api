@@ -45,6 +45,7 @@ public class DrinkController {
     {
         Map<String, String> response = new HashMap<>();
         response.put("Info", "La boisson à été supprimé");
+        drinkService.removeDrinkById(id);
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 }

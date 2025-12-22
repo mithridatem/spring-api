@@ -15,9 +15,6 @@ public class DrinkService {
     private DrinkRepository drinkRepository;
     //ajout,
     public Drink addDrink(Drink drink) {
-        if (drinkRepository.existsByName(drink.getName())) {
-            throw new RuntimeException("La boisson existe déja");
-        }
         return drinkRepository.save(drink);
     }
     //afficher tous,

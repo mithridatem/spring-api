@@ -1,0 +1,27 @@
+meta {
+  name: ajouter une boisson
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:8080/drink
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name":"cafe",
+    "drinkTypes":[
+      {
+        "id":2
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,16 @@
+meta {
+  name: afficher une boisson
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://localhost:8080/drink/4
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="drink")
@@ -16,10 +17,10 @@ public class Drink {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany()
     @JoinTable(name= "drink_drink_type",
             joinColumns = @JoinColumn(name= "drink_id"),
             inverseJoinColumns = @JoinColumn(name= "type_id")
     )
-    private ArrayList<DrinkType> drinkTypes;
+    private List<DrinkType> drinkTypes;
 }

@@ -1,0 +1,15 @@
+meta {
+  name: Afficher toutes les tailles de boisson
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8080/sizes
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
