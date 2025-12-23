@@ -6,8 +6,7 @@ public class UserDTOWrapper {
 
     public static UserDTO userToUserDTO(User user) {
         return new UserDTO(
-                user.getFirstname(),
-                user.getLastname(),
+                user.getUsername(),
                 user.getEmail()
         );
     }

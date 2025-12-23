@@ -1,6 +1,9 @@
 package com.adrar.api.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity
@@ -12,6 +15,8 @@ public class DrinkSize {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable=false, length=50)
+    @Column(nullable=false)
+    @Min(2)
+    @Max(100)
     private Integer volume;
 }

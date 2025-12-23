@@ -2,6 +2,7 @@ package com.adrar.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "drink_type")
@@ -13,6 +14,7 @@ public class DrinkType {
     private Integer id;
 
     @Column(nullable = false, unique = true)
+    @Length(min = 2, max = 50)
     private String name;
 
     @Override

@@ -20,7 +20,7 @@ public class UserController {
     //ajouter un compte
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestBody @Valid User user)
+    public User createUser(@RequestBody User user)
     {
         return userService.addUser(user);
     }

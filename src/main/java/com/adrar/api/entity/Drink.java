@@ -2,6 +2,7 @@ package com.adrar.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,8 @@ public class Drink {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
+    @Length(min = 3, max = 50)
     private String name;
 
     @ManyToMany()

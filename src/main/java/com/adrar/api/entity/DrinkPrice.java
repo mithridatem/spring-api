@@ -1,6 +1,9 @@
 package com.adrar.api.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 @Entity
@@ -13,6 +16,8 @@ public class DrinkPrice {
     private Integer id;
 
     @Column(nullable = false)
+    @Positive
+    @DecimalMin(value= "0.5")
     private Double price;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
